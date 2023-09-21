@@ -1,0 +1,200 @@
+@import "_vars"
+@import "markdown"
+
+/*
+ * reset
+ */
+a {
+	text-underline-offset : CSS($font-size-quarter);
+}
+
+a[href], a[href]:link, a[href]:visited {
+	color : $primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family : $zhCN-font;
+	margin-top : $font-size-big;
+	margin-bottom : $font-size-small;
+}
+
+/*
+ * main
+ */
+body {
+	margin : 0;
+	font-family : $text-font;
+	font-size : $font-size;
+	color : $text-color;
+	background-color : $bg-color;
+}
+
+.container {
+	box-sizing : border-box;
+	width : 100%;
+	max-width : $container-xl;
+	margin : 0 auto;
+	padding : 0 $font-size;
+	$debug-border();
+}
+
+#header {
+	font-family : $zhCN-font;
+	border-bottom : 1pt solid $border-color-gray;
+	.menu {
+		var margin-top = $font-size * .75;
+		text-align : right;
+		var button-border-color = $border-color-gray;
+		var button-text-color = $text-color-secondary;
+		var button-bg-color = $border-color-light;
+		> a {
+			display : inline-block;
+			text-decoration : none;
+			vertical-align : top;
+			font-weight : 600;
+			font-size : $font-size - 2;
+			height : $font-size * 1.5;
+			line-height : $font-size * 1.5;
+			user-select : none;
+			color : alphamix($button-text-color, 0.75, $button-bg-color);
+			margin : $font-size-quarter 0;
+			padding : $font-size-quarter $font-size * 1.5;
+			border : 1pt solid $button-border-color;
+			border-left-width : 0;
+			background-color : $button-bg-color;
+			&:first-child {
+				border-left-width : 1px;
+			}
+
+			&:hover, &:active {
+				color : $button-text-color;
+				text-decoration : underline;
+			}
+		}
+	}
+}
+
+#body {
+	border-top : 1pt solid $border-color-light;
+	padding-top : $font-size;
+}
+
+var items-xl = 16 * $font-size;
+var items-lg = 12 * $font-size;
+
+#items {
+	box-sizing : border-box;
+	position : fixed;
+	width : $items-xl; /* 1. percentage width will cause "fixed" confusion */
+	background-color : $light;
+	overflow : hidden;
+	list-style : none;
+	> li {
+		padding : 0;
+		margin : 0;
+		ul {
+			list-style : none;
+			margin : 0;
+			padding : 0;
+		}
+	}
+	> li > ul > li > a {
+		padding-left : $font-size * 1.25;
+		font-size : $font-size - 1;
+	}
+	> li > ul > li > ul > li > a {
+		padding-left : $font-size * 2.5;
+		font-size : $font-size - 2;
+	}
+	/*
+	> li > ul {
+		display : none;
+	}
+	> li > a.active + ul {
+		display : block;
+	}
+	*/
+	a {
+		font-size : $font-size;
+		font-family : $zhCN-font;
+		display : list-item;
+		color : $text-color-secondary;
+		text-decoration : none;
+		padding: int($font-size * .35) 0;
+		border-right: 1.5pt solid $light;
+		&:hover {
+			background-color : $border-color-light;
+			color : $primary;
+			text-decoration : underline;
+		}
+		&.active {
+			color : $primary;
+			border-right-color : $primary;
+			font-weight : bold;
+		}
+	}
+}
+
+#content {
+	box-sizing : border-box;
+	margin-left : $items-xl + $font-size;
+	min-height : $font-size * 18;
+
+	> h1 {
+		margin-top : 0;
+		font-family : $zhCN-font;
+		line-height : 0.8; /* try to align left-side-bar */
+	}
+
+	> p {
+		font-size : $font-size-small;
+		color : $text-color-secondary;
+	}
+}
+
+#footer {
+	padding : $font-size;
+	text-align : center;
+	font-size : $font-size-small;
+}
+
+/*
+ * @media query
+ */
+@media (max-width : $breakpoint-lg) and (min-width : $breakpoint-md + 1) {
+	#items {
+		width : $items-lg;
+	}
+	#content {
+		margin-left: $items-lg + $font-size;
+	}
+}
+
+@media (max-width : $breakpoint-md) {
+	#items {
+		width : 100%;
+		position : static;
+		a {
+			text-decoration : underline;
+		}
+	}
+	#content {
+		margin-left : 0;
+		margin-top : $font-size;
+	}
+}
+
+/*
+ * @media print
+ */
+@media print {
+	#header, #items, #footer{
+		display : none;
+	}
+	.container {
+		max-width : unset;
+	}
+	#content{
+		margin-left : 0;
+	}
+}

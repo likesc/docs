@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: "en" }}">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/assets/style.css"/>
+	<title>{{ page.title | default: page.name | remove_first: ".md" }}</title>
+</head>
+<body>
+	<div id="header">
+		<div class="container menu">
+			{%- if page.project -%}
+				<a href="{{ site.url }}/{{ page.project }}/archive/refs/heads/master.zip">下载</a>
+				{{- "" -}}
+				<a href="{{ site.url }}/{{ page.project }}/issues">问题</a>
+			{%- else -%}
+				<a href="{{ site.url }}">about</a>
+			{%- endif -%}
+			{%- if page.donation -%}
+				<a href="{{ page.donation }}">支持</a>
+			{%- endif -%}
+		</div>
+	</div>
+	<div id="body">
+		<div class="container">
+			<div id="items"></div>
+			<div id="content">
+				<h1>{{ page.title | default: page.name | remove_first: ".md" }}</h1>
+				{% if page.date -%}
+				<p>最后更新 : {{ page.date | date: '%Y年%m月%d日 %H:%MGMT+8' }}</p>
+				{% endif -%}
+				<div class="markdown-body">{{ content }}</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="container">
+		Hosted on <a href="https://pages.github.com/">GitHub Pages</a> - Theme by lwm
+	</div>
+	<script src="/assets/main.js"></script>
+</body>
+</html>

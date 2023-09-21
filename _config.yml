@@ -1,0 +1,11 @@
+name: lwm
+
+url: http://github.com/likesc
+
+encoding: utf-8
+
+timezone: CN
+
+exclude: ["README.md"]
+
+## custom metadatas

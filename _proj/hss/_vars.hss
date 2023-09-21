@@ -1,0 +1,82 @@
+/*
+ * bootsrrap 4 color
+ */
+var blue       =  #007bff;
+var indigo     =  #6610f2;
+var purple     =  #6f42c1;
+var pink       =  #e83e8c;
+var red        =  #dc3545;
+var orange     =  #fd7e14;
+var yellow     =  #ffc107;
+var green      =  #28a745;
+var teal       =  #20c997;
+var cyan       =  #17a2b8;
+var white      =  #fff;
+var gray       =  #6c757d;
+var gray-dark  =  #343a40;
+var primary    =  $blue;
+var secondary  =  $gray;
+var success    =  $green;
+var info       =  $cyan;
+var warning    =  $yellow;
+var danger     =  $red;
+var light      =  #f8f9fa;
+var dark       =  $gray-dark;
+
+/* darken, lighten, saturate, desaturate, invert */
+var bg-color             = $light;
+var text-color           = $dark;
+var text-color-secondary = darken($gray, 5%);
+
+var border-color         = $gray;
+var border-color-gray    = darken($light, 12%);
+var border-color-light   = darken($light,  3%);
+
+var text-red   = darken($red, 8%);
+var text-blue  = darken($blue, 8%);
+var text-green = darken($green, 8%);
+
+/*
+ * font size
+ *
+ * PT = PX * 72 / 96
+ */
+var font-size         = 12pt;
+var font-size-small   = 10pt;
+var font-size-big     = 14pt;
+var font-size-quarter = $font-size * 0.25;
+
+/*
+ * 宋体     : SimSun
+ * 黑体     : SimHei
+ * 微软雅黑 : Microsoft YaHei
+ * 微软     : Segoe UI
+ * 新宋体   : NSimSun
+ * 幼圆     : YouYuan
+ */
+var text-font = Arial, SimSun;
+var mono-font = Consolas, "Courier New";
+var enUS-font = "Sans Serif", "Microsoft Sans Serif";
+var zhCN-font = "Segoe UI", "Microsoft YaHei", SimHei, SimSun;
+
+/*
+ * container
+ */
+var margin-width  = $font-size * .5;
+var breakpoint-xl = $font-size * 72; // 1200px;
+var breakpoint-lg = $font-size * 62; // 992px;
+var breakpoint-md = $font-size * 48; // 768px;
+var breakpoint-sm = $font-size * 36; // 576px;
+var container-xl  = $font-size * 72; // 1140px;
+var container-lg  = $font-size * 60; // 960px;
+var container-md  = $font-size * 45; // 720px;
+var container-sm  = $font-size * 33; // 540px;
+
+/*
+ * auxiliary
+ */
+var debug-border = {
+@if debug
+	border : 1px solid $border-color;
+@end
+}
