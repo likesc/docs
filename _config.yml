@@ -4,7 +4,8 @@ url: http://github.com/likesc
 
 encoding: utf-8
 
-timezone: CN
+# https://nodatime.org/TimeZones
+timezone: Asia/Shanghai
 
 exclude: ["README.md"]
 

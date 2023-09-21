@@ -1,10 +1,21 @@
+a {
+	text-underline-offset : 3pt;
+}
+a[href], a[href]:link, a[href]:visited {
+	color : #007bff;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family : "Segoe UI", "Microsoft YaHei", SimHei, SimSun;
+	margin-top : 14pt;
+	margin-bottom : 10pt;
+}
 .markdown-body {
 	line-height : 1.6;
 }
 .markdown-body blockquote {
 	font-size : 11pt;
-	border-left : 3pt solid #D4DAE1;
-	color : #6c757d;
+	border-left : 3pt solid #888F96;
+	color : #60686F;
 	margin : 0;
 	padding : 0 12pt;
 }
@@ -56,6 +67,7 @@
 .markdown-body table {
 	display : block;
 	width : 100%;
+	font-size : 11.0004pt;
 	overflow : auto;
 	border-collapse : collapse;
 	border-spacing : 0;
@@ -75,7 +87,7 @@
 	background-color : #E9ECEF;
 	border : 0;
 	height : 3pt;
-	margin : 24px 0;
+	margin : 18pt 0;
 	padding : 0;
 }
 .markdown-body .highlight table td {
@@ -291,16 +303,41 @@
 .markdown-body .highlight {
 	background-color : #f8f8f8;
 }
-a {
-	text-underline-offset : 3pt;
+.markdown-body pre {
+	display : block;
+	padding : 6pt;
+	margin : 0 0 6pt;
+	font-size : 11.0004pt;
+	font-family : Consolas, "Courier New";
+	line-height : 1.5;
+	color : #51575C;
+	word-break : break-all;
+	word-wrap : break-word;
+	border : 1pt solid #ccc;
+	border-radius : 3pt;
+	overflow : auto;
 }
-a[href], a[href]:link, a[href]:visited {
-	color : #007bff;
+.markdown-body pre code {
+	padding : 0;
+	font-size : inherit;
+	color : inherit;
+	white-space : pre-wrap;
+	background-color : transparent;
+	border-radius : 0;
 }
-h1, h2, h3, h4, h5, h6 {
-	font-family : "Segoe UI", "Microsoft YaHei", SimHei, SimSun;
-	margin-top : 14pt;
-	margin-bottom : 10pt;
+.markdown-body code {
+	padding : 1.5pt 3pt;
+	font-size : 11.0004pt;
+	font-family : Consolas, "Courier New";
+	color : #50555B;
+	background-color : #EFF1F4;
+	border-radius : 3pt;
+}
+.markdown-body kbd {
+	font-weight : 600;
+	font-size : 11.0004pt;
+	font-family : Consolas, "Courier New";
+	background-color : #EFF1F4;
 }
 body {
 	margin : 0;
@@ -308,6 +345,7 @@ body {
 	font-size : 12pt;
 	color : #343a40;
 	background-color : #f8f9fa;
+	letter-spacing : 0.3pt;
 }
 .container {
 	box-sizing : border-box;
@@ -407,6 +445,7 @@ body {
 #content > p {
 	font-size : 10pt;
 	color : #60686F;
+	margin : 16.5pt 0 12pt;
 }
 #footer {
 	padding : 12pt;

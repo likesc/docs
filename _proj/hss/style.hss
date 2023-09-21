@@ -1,5 +1,5 @@
 @import "_vars"
-@import "markdown"
+
 
 /*
  * reset
@@ -18,6 +18,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom : $font-size-small;
 }
 
+@import "markdown"
+
 /*
  * main
  */
@@ -27,6 +29,7 @@ body {
 	font-size : $font-size;
 	color : $text-color;
 	background-color : $bg-color;
+	letter-spacing : 0.3pt;
 }
 
 .container {
@@ -149,6 +152,7 @@ var items-lg = 12 * $font-size;
 	> p {
 		font-size : $font-size-small;
 		color : $text-color-secondary;
+		margin : 1.375 * $font-size 0 $font-size;
 	}
 }
 

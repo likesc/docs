@@ -10,15 +10,29 @@
 <body>
 	<div id="header">
 		<div class="container menu">
-			{%- if page.project -%}
-				<a href="{{ site.url }}/{{ page.project }}/archive/refs/heads/master.zip">下载</a>
-				{{- "" -}}
-				<a href="{{ site.url }}/{{ page.project }}/issues">问题</a>
+			{% if page.lang contains "zh" %}
+				{% assign download = "下载" %}
+				{% assign issues = "问题" %}
+				{% assign home = "主页" %}
+				{% assign donate = "支持" %}
+				{% capture lastupdated %}最后更新 : {{ page.date | default: "now" | date: '%Y年%m月%d日 %H:%M %Z' }}{% endcapture %}
 			{%- else -%}
-				<a href="{{ site.url }}">about</a>
+				{% assign download = "download" %}
+				{% assign issues = "issues" %}
+				{% assign home = "home" %}
+				{% assign donate = "donate" %}
+				{% capture lastupdated %}Last updated : {{ page.date | default: "now" | date: '%Y-%m-%d %H:%M %Z' }}{% endcapture %}
 			{%- endif -%}
-			{%- if page.donation -%}
-				<a href="{{ page.donation }}">支持</a>
+
+			{%- if page.project -%}
+				<a href="{{ site.url }}/{{ page.project }}/archive/refs/heads/master.zip">{{ download }}</a>
+				{{- "" -}}
+				<a href="{{ site.url }}/{{ page.project }}/issues">{{ issues }}</a>
+			{%- else -%}
+				<a href="{{ site.url }}">{{ home }}</a>
+			{%- endif -%}
+			{%- if page.donate -%}
+				<a href="{{ page.donate }}">{{ donate }}</a>
 			{%- endif -%}
 		</div>
 	</div>
@@ -27,15 +41,13 @@
 			<div id="items"></div>
 			<div id="content">
 				<h1>{{ page.title | default: page.name | remove_first: ".md" }}</h1>
-				{% if page.date -%}
-				<p>最后更新 : {{ page.date | date: '%Y年%m月%d日 %H:%MGMT+8' }}</p>
-				{% endif -%}
+				<p>{{ lastupdated }}</p>
 				<div class="markdown-body">{{ content }}</div>
 			</div>
 		</div>
 	</div>
 	<div id="footer" class="container">
-		Hosted on <a href="https://pages.github.com/">GitHub Pages</a> - Theme by lwm
+		Hosted on <a href="https://pages.github.com/">GitHub Pages</a> - Theme by <b>lwm</b>
 	</div>
 	<script src="/assets/main.js"></script>
 </body>

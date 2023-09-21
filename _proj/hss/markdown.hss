@@ -6,8 +6,8 @@
 
 	blockquote {
 		font-size : $font-size - 1;
-		border-left : $font-size-quarter solid $border-color-gray;
-		color : $gray;
+		border-left : $font-size-quarter solid alphamix($border-color, 0.8, $bg-color);
+		color : $text-color-secondary;
 		margin : 0;
 		padding : 0 $font-size;
 
@@ -64,11 +64,12 @@
 			margin-top : $font-size-quarter;
 		}
 	}
-
+	var font-size-code = $font-size * 0.9167;
 	/* table */
 	table {
 		display : block;
 		width : 100%;
+		font-size : $font-size-code;
 		overflow : auto;
 		border-collapse : collapse;
 		border-spacing : 0;
@@ -91,7 +92,7 @@
 		background-color : darken($light, 5%);
 		border : 0;
 		height : $font-size-quarter;
-		margin : 24px 0;
+		margin : $font-size * 1.5 0;
 		padding : 0;
 	}
 
@@ -305,5 +306,44 @@
 	}
 	.highlight {
 		background-color : #f8f8f8;
+	}
+
+	pre {
+		display : block;
+		padding : $font-size * 0.5;
+		margin : 0 0 $font-size * 0.5;
+		font-size : $font-size-code;
+		font-family : $mono-font;
+		line-height : 1.5;
+		color : alphamix($text-color, 0.85, #f8f8f8);
+		word-break : break-all;
+		word-wrap : break-word;
+		border : 1pt solid #ccc;
+		border-radius : $font-size-quarter;
+		overflow : auto;
+		code {
+			padding : 0;
+			font-size : inherit;
+			color : inherit;
+			white-space : pre-wrap;
+			background-color : transparent;
+			border-radius : 0;
+		}
+	}
+
+	code {
+		padding: $font-size-quarter * 0.5 $font-size-quarter;
+		font-size : $font-size-code;
+		font-family : $mono-font;
+		color : alphamix($text-color, 0.85, $border-color-light);
+		background-color : $border-color-light;
+		border-radius : $font-size-quarter;
+	}
+
+	kbd {
+		font-weight : 600;
+		font-size : $font-size-code;
+		font-family : $mono-font;
+		background-color : $border-color-light;
 	}
 }
